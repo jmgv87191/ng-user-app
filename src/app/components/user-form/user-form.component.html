@@ -97,9 +97,16 @@
     </div>
 
     <div>
-        <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary my2" >
+
+        <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary my-2" >
             {{ (user.id > 0)? 'Actualizar': 'Aceptar' }}
         </button>
+
+        <button type="button" class="btn btn-primary m-2" (click)="onClear(userForm)" >
+            Limipar
+        </button>
+
+
     </div>
 
 </form>
