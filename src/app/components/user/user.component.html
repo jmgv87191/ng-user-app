@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">User Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of users; track $index) {
+            <tr class="table-primary">
+                <td> {{ item.id }} </td>
+                <td> {{ item.name }} </td>
+                <td> {{ item.lastname }} </td>
+                <td> {{ item.email }} </td>
+                <td> {{ item.username }} </td>
+            </tr>
+        }
+    </tbody>
+</table>

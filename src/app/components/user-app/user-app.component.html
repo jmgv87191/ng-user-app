@@ -1,33 +1,27 @@
-<h3>Lista de usuarios</h3>
-@if (users.length === 0) {
-    <div class="alert alert-dismissible alert-warning">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <h4 class="alert-heading">Alerta!</h4>
-        <p class="mb-0">No hay registros en el sistema</p>
-    </div>
-}@else {
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Email</th>
-                <th scope="col">User Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of users; track $index) {
-                <tr class="table-primary">
-                    <td> {{ item.id }} </td>
-                    <td> {{ item.name }} </td>
-                    <td> {{ item.lastname }} </td>
-                    <td> {{ item.email }} </td>
-                    <td> {{ item.username }} </td>
-                </tr>
-            }
-    
-        </tbody>
-    </table>
+<div class="container">
 
-}
+    <h3>Lista de usuarios</h3>
+    @if (users.length === 0) {
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <h4 class="alert-heading">Alerta!</h4>
+            <p class="mb-0">No hay registros en el sistema</p>
+        </div>
+    }@else {
+
+        <div class="row">
+
+            <div class="col">
+                <app-user-form></app-user-form>
+            </div>
+            <div class="col">
+                
+                <app-user [users]="users" ></app-user>
+            </div>
+
+        </div>
+
+    
+    }
+
+</div>
