@@ -98,7 +98,7 @@
 
     <div>
         <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary my2" >
-            Create
+            {{ (user.id > 0)? 'Actualizar': 'Aceptar' }}
         </button>
     </div>
 
