@@ -14,8 +14,11 @@ import { UserFormComponent } from '../user-form/user-form.component';
 export class UserAppComponent implements OnInit {
 
   users:User[] = []
+  userSelected:User;
 
-  constructor ( private _userService:UserService ){}
+  constructor ( private _userService:UserService ){
+    this.userSelected = new User();
+  }
 
   ngOnInit(): void {
 
@@ -23,6 +26,19 @@ export class UserAppComponent implements OnInit {
       this.users = data
     })
 
+  }
+
+
+  addUser( user:User ){
+    this.users = [ ...this.users, {...user, id:new Date().getTime() } ]
+  }
+
+  remove( id:number){
+    this.users = this.users.filter(  item => { return item.id !== id } )
+  }
+
+  setSelectedUser( userRow:User ){
+    this.userSelected = { ...userRow }
   }
 
 

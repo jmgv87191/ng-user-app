@@ -1,21 +1,27 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Email</th>
             <th scope="col">User Name</th>
+            <th scope="col">Eliminar</th>
+            <th scope="col">Actualizar</th>
         </tr>
     </thead>
     <tbody>
         @for (item of users; track $index) {
             <tr class="table-primary">
-                <td> {{ item.id }} </td>
                 <td> {{ item.name }} </td>
                 <td> {{ item.lastname }} </td>
                 <td> {{ item.email }} </td>
                 <td> {{ item.username }} </td>
+                <td> 
+                    <button class="btn btn-danger btn-sm" (click)="onRemoveUser(item.id)" >Eliminar</button>
+                </td>
+                <td> 
+                    <button class="btn btn-info btn-sm" (click)="onSelectedUser(item)" >Actualizar</button>
+                </td>
             </tr>
         }
     </tbody>
